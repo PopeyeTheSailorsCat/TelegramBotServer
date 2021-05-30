@@ -14,4 +14,6 @@ class OpenWeatherView(APIView):
         result = requests.get(
             f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={open_weather_token}&units=metric")
         print(result)
-        return Response(result)
+        data = result.json()
+        print(data)
+        return Response(data)
