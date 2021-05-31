@@ -3,14 +3,19 @@ import requests
 # Create your views here.
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from config import open_weather
 
-open_weather_token = "9bf05fd8bdd48497c327eb13ac7727fd"
+
+def get_from_service(request, service):
+    city = request.GET['city']
+    api_url = service['api_url']
+    token = service['api_token']
+    return requests.get(
+        api_url + f"?q={city}&appid={token}&units=metric")
 
 
 class OpenWeatherView(APIView):
     def get(self, request):
-        city = request.GET['city']
-        result = requests.get(
-            f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={open_weather_token}&units=metric")
+        result = get_from_service(request, open_weather)
         data = result.json()
         return Response(data)
