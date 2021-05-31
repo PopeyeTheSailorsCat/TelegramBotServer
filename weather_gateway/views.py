@@ -9,11 +9,8 @@ open_weather_token = "9bf05fd8bdd48497c327eb13ac7727fd"
 
 class OpenWeatherView(APIView):
     def get(self, request):
-        # data = request.json()
         city = request.GET['city']
         result = requests.get(
             f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={open_weather_token}&units=metric")
-        print(result)
         data = result.json()
-        print(data)
         return Response(data)
