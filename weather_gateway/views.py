@@ -3,7 +3,7 @@ import requests
 # Create your views here.
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from config import open_weather
+from .config import open_weather
 
 
 def get_from_service(request, service):
