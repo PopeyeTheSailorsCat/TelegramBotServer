@@ -47,7 +47,7 @@ To allow the bot to access the local server, you need to make the local server a
 There are several ways to achieve this. One of them is to use localhost.run to host access to your local server (https://localhost.run/).
 On their website, you can find a simple guide to the host. 
 After you want your local address, you should be given your url.
-It should be added as indicated in Running on server
+It should be added as indicated in 'Running on server'
 # Development team
 1. Mamaeva Anastasia
 
